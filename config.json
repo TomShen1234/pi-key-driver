@@ -1,0 +1,22 @@
+[
+	{
+		"displayName":"Programmable Key 1",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":4,
+		"mode":"shortcut",
+		"command":"\u000a\u0000\u0020\u0000\u0000\u0000\u0000\u0000"
+        },
+        {
+		"displayName":"Programmable Key 2",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":23,
+		"mode":"text",
+		"command":"this is a test.-/"
+        }
+]
