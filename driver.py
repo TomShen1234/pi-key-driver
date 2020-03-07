@@ -74,7 +74,8 @@ def writeToKeyboard(command):
     os.close(dev)
 
 # Load json from file
-jsonFile = open('config.json')
+scriptPath = os.path.dirname(__file__)
+jsonFile = open(scriptPath + '/config.json')
 datas = json.load(jsonFile)
 jsonFile.close()
 

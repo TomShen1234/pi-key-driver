@@ -5,7 +5,7 @@
 		"type":"switch",
 		"className":"key-driver",
 
-		"gpio":4,
+		"gpio":22,
 		"mode":"shortcut",
 		"command":"\u000a\u0000\u0020\u0000\u0000\u0000\u0000\u0000"
         },
@@ -15,8 +15,70 @@
 		"type":"switch",
 		"className":"key-driver",
 
+		"gpio":17,
+		"mode":"shortcut",
+		"command":"\u000a\u0000\u0021\u0000\u0000\u0000\u0000\u0000"
+        },
+        {
+		"displayName":"Programmable Key 4",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":18,
+		"mode":"text",
+		"command":"b"
+        },
+        {
+		"displayName":"Programmable Key 3",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":4,
+		"mode":"text",
+		"command":"c"
+        },
+        {
+		"displayName":"Programmable Key 5",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
 		"gpio":23,
 		"mode":"text",
-		"command":"this is a test.-/"
+		"command":"d"
+        },
+        {
+		"displayName":"Programmable Key 6",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":24,
+		"mode":"text",
+		"command":"e"
+        },
+        {
+		"displayName":"Programmable Key",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":25,
+		"mode":"text",
+		"command":"f"
+        },
+        {
+		"displayName":"Programmable Key",
+		"parameterName":"state",
+		"type":"switch",
+		"className":"key-driver",
+
+		"gpio":14,
+		"mode":"text",
+		"command":"g"
         }
+
+
 ]
