@@ -43,6 +43,11 @@ def writeTextToKeyboard(text):
     
     dev = os.open("/dev/hidg0", os.O_RDWR)
     for char in text:
+        #Assuming US keyboard layout
+        modifier = '\x00'
+
+        specialChars = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '<', '>', '?']
+
         dictChar = char
         if char == ' ':
             dictChar = 'SPACE'
@@ -52,10 +57,39 @@ def writeTextToKeyboard(text):
             dictChar = 'DOT'
         elif char == '/':
             dictChar = 'SLASH'
+        elif char == ',':
+            dictChar = 'COMMA'
+        elif char == '\'':
+            dictChar = 'APOSTROPHE'
+        elif char == '"':
+            dictChar = 'APOSTROPHE'
+            modifier = '\x02'
+        elif char in specialChars:
+            # These are special Shift chars
+            modifier = '\x02'
+
+            index = specialChars.index(char)
+
+            if index < 10:
+                formatIndex = index + 1
+                if formatIndex == 10: 
+                    formatIndex = 0
+                dictChar = '{}'.format(formatIndex)
+            elif index == 10:
+                dictChar = 'COMMA'
+            elif index == 11:
+                dictChar = 'DOT'
+            elif index == 12:
+                dictChar = 'SLASH'
+        elif char.isupper():
+            # Need to press shift for uppercase letter
+            modifier = '\x02'
+
+        #print('Output letter: {}'.format(dictChar))
 
         keycodeChar = keycode.keycodeDict['KEY_' + dictChar.upper()]
 
-        finalOutput = '\x00\x00' + keycodeChar + '\x00\x00\x00\x00\x00'
+        finalOutput = modifier + '\x00' + keycodeChar + '\x00\x00\x00\x00\x00'
 
         os.write(dev, finalOutput.encode())
         os.write(dev, empty.encode())
@@ -74,7 +108,9 @@ def writeToKeyboard(command):
     os.close(dev)
 
 # Load json from file
-scriptPath = os.path.dirname(__file__)
+#scriptPath = os.path.dirname(__file__)
+scriptPath = os.path.dirname(os.path.abspath(__file__))
+#print(scriptPath)
 jsonFile = open(scriptPath + '/config.json')
 datas = json.load(jsonFile)
 jsonFile.close()

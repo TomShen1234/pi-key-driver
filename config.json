@@ -5,9 +5,9 @@
 		"type":"switch",
 		"className":"key-driver",
 
-		"gpio":22,
-		"mode":"shortcut",
-		"command":"\u000a\u0000\u0020\u0000\u0000\u0000\u0000\u0000"
+		"gpio":4,
+		"mode":"text",
+		"command":"Hello, world! @#$%^&*()<>?,./ !!!!"
         },
         {
 		"displayName":"Programmable Key 2",
@@ -35,7 +35,7 @@
 		"type":"switch",
 		"className":"key-driver",
 
-		"gpio":4,
+		"gpio":10,
 		"mode":"text",
 		"command":"c"
         },
